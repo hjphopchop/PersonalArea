@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import cl from "./LoginForm.module.css";
 import { useForm, SubmitHandler } from "react-hook-form";
 
@@ -7,7 +7,7 @@ type Inputs = {
   password: string;
 };
 
-const LoginForm = () => {
+const LoginForm:FC  = () => {
   const {
     register,
     handleSubmit,

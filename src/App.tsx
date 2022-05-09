@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import './App.css';
-import LoginForm from './components/loginForm/LoginForm';
+import AppRouter from './components/AppRouter';
 
-function App() {
+const App:FC =() => {
   return (
     <div className="App">
-      <LoginForm/>
+      <AppRouter/>
     </div>
   );
 }
