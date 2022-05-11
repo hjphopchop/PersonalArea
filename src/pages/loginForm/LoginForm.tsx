@@ -1,19 +1,24 @@
 import React, { FC } from "react";
 import cl from "./LoginForm.module.css";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { SetAuth } from "../../store/reducers/auth";
 
 type Inputs = {
   login: string;
   password: string;
 };
 
+
+
 const LoginForm:FC  = () => {
+  
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => alert("vhod");
+  const onSubmit: SubmitHandler<Inputs> = (data) => SetAuth();
 
 
   return (
