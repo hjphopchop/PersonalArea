@@ -1,8 +1,7 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useTypedSelector } from "../hooks/store";
 import { privateRoutes, publicRoutes } from "../routes";
-import { SetAuth } from "../store/reducers/auth";
 
 const AppRouter: FC = () => {
   const isAuth: boolean = useTypedSelector((state) => state.auth.isAuth);

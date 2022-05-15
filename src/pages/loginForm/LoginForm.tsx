@@ -1,7 +1,8 @@
 import React, { FC } from "react";
 import cl from "./LoginForm.module.css";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { SetAuth } from "../../store/reducers/auth";
+import { ChangeAuth } from "../../store/reducers/auth";
+import { useAppDispatch } from "../../hooks/store";
 
 type Inputs = {
   login: string;
@@ -11,14 +12,14 @@ type Inputs = {
 
 
 const LoginForm:FC  = () => {
-  
+  const dispatch = useAppDispatch();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => SetAuth();
+  const onSubmit: SubmitHandler<Inputs> = (data) => dispatch(ChangeAuth());
 
 
   return (
