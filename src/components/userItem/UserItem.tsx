@@ -2,11 +2,17 @@ import React from 'react'
 import { User } from '../../types/User'
 import cl from './UserItem.module.css'
 
-const UserItem = ({id,name,website}:User) => {
+const UserItem = ({id,firstName,lastName,company}:User) => {
+  const deleteUser = () => {
+    
+  }
   return (<div className={cl.wrap}>
-  <div>{id}</div>
-  <div>{name}</div>
-  <div>{website}</div>
+  <div>{firstName}</div>
+  <div>{lastName}</div>
+  <div>{company}</div>
+  <div>
+    <button >удалить</button>
+  </div>
   </div>
     
   )

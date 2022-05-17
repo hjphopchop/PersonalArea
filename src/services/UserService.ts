@@ -4,7 +4,7 @@ import { User } from "../types/User";
 export const userApi = createApi({
   reducerPath: "userApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://jsonplaceholder.typicode.com",
+    baseUrl: "http://localhost:3001",
   }),
   endpoints: (build) => ({
     fetchAllUsers: build.query<User[], any>({
