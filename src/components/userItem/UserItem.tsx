@@ -1,17 +1,24 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { User } from '../../types/User'
 import cl from './UserItem.module.css'
 
-const UserItem = ({id,firstName,lastName,company}:User) => {
-  const deleteUser = () => {
+interface UserItemProps {
+  user: User
+  remove: (user: User) => void
+}
+const UserItem: FC<UserItemProps> = ({user,remove}) => {
+  const handleRemove = (event: React.MouseEvent) => {
+    
+    event.stopPropagation();
+    remove(user)
     
   }
   return (<div className={cl.wrap}>
-  <div>{firstName}</div>
-  <div>{lastName}</div>
-  <div>{company}</div>
+  <div>{user.firstName}</div>
+  <div>{user.lastName}</div>
+  <div>{user.company}</div>
   <div>
-    <button >удалить</button>
+    <button onClick={handleRemove} >удалить</button>
   </div>
   </div>
     

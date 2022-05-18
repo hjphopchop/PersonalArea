@@ -1,26 +1,14 @@
 {
   "users": [
     {
-      "id": 0,
-      "firstName": "Igor",
-      "lastName": "Parfyonov",
-      "company": "Google"
-    },
-    {
       "id": 1,
-      "firstName": "Ivan",
-      "lastName": "Parfyonov",
-      "company": "Google"
-    },
-    {
-      "id": 2,
-      "firstName": "Alex",
+      "firstName": "Jone",
       "lastName": "Parfyonov",
       "company": "Google"
     },
     {
       "id": 3,
-      "firstName": "Jone",
+      "firstName": "Pavel",
       "lastName": "Parfyonov",
       "company": "Google"
     },
@@ -29,8 +17,18 @@
       "firstName": "Pavel",
       "lastName": "Parfyonov",
       "company": "Google"
+    },
+    {
+      "id": 5,
+      "firstName": "Pavel",
+      "lastName": "Parfyonov",
+      "company": "Google"
+    },
+    {
+      "id": 6,
+      "firstName": "Pavel",
+      "lastName": "Parfyonov",
+      "company": "Google"
     }
-  ],
-  "auth": [{ "id": 1, "login": 12345, "password": "12345" }]
-  
+  ]
 }

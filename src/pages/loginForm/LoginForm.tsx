@@ -7,7 +7,7 @@ import { useAppDispatch } from "../../hooks/store";
 import "firebase/firestore";
 import "firebase/auth";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-
+import {useAuthState} from "react-firebase-hooks/auth"
 type Inputs = {
   login: string;
   password: string;
@@ -15,11 +15,13 @@ type Inputs = {
 
 const LoginForm: FC = () => {
   const dispatch = useAppDispatch();
+  const auth = getAuth();
   const handleLogin = (email: any, password: any): any => {
-    const auth = getAuth();
-    console.log(auth);
+    
+    
     signInWithEmailAndPassword(auth, email, password)
-      .then(() => dispatch(ChangeAuth()))
+      .then(() =>
+       dispatch(ChangeAuth()))
       .catch(() => alert("неправильный логин или пароль"));
   };
   const {
@@ -29,6 +31,9 @@ const LoginForm: FC = () => {
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) =>
     handleLogin(data.login, data.password);
+
+  
+
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={cl.form}>
@@ -41,7 +46,7 @@ const LoginForm: FC = () => {
       />
       {errors.password && <span>обязательное поле</span>}
 
-      <label>reer {process.env.REACT_APP_FIREBASE_API_KEY}</label>
+      <label>reer </label>
       <input type="submit" />
     </form>
   );

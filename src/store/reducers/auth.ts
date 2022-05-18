@@ -16,10 +16,14 @@ export const Auth = createSlice({
   reducers: {
     ChangeAuth: (state) => {
       state.isAuth = !state.isAuth;
+     
     },
+    RemoveUser: (state) => {
+      state.isAuth = false
+    }
   },
 });
 
-export const { ChangeAuth } = Auth.actions;
+export const { ChangeAuth, RemoveUser } = Auth.actions;
 export const selectAuth = (state: RootState) => state.auth.isAuth;
 export default Auth.reducer;
