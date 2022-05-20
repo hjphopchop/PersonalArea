@@ -5,15 +5,23 @@ export const userApi = createApi({
   reducerPath: "userApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:3001",
-    
   }),
   tagTypes: ['Post'],
   endpoints: (build) => ({
-    fetchAllUsers: build.query<User[], any>({
+    fetchAllUsers: build.query<User[],any>({
       query: () => ({
         url: "/users",
+        
       }),
       providesTags: result => ['Post']
+    }),
+    createUser: build.mutation<User,User>({
+      query:(user) => ({
+        url: `/users`,
+        method: "POST",
+        body: user
+      }),
+      invalidatesTags:['Post']
     }),
     deleteUser: build.mutation<User, User>({
       query:(user) => ({

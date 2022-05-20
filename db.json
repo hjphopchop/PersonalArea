@@ -1,19 +1,29 @@
 {
-  "posts": [
+  "users": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "firstName": "rrr",
+      "body": "rrr",
+      "id": 3
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "firstName": "jioijio",
+      "body": "jioijio",
+      "id": 4
+    },
+    {
+      "firstName": "u899u",
+      "body": "u899u",
+      "id": 5
+    },
+    {
+      "firstName": "908099\\",
+      "body": "908099\\",
+      "id": 6
+    },
+    {
+      "firstName": "8989889",
+      "body": "8989889",
+      "id": 7
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

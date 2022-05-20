@@ -1,29 +1,29 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice} from "@reduxjs/toolkit";
 import { RootState } from "../store";
-import { AuthUser } from "../../types/AuthUser";
+
 interface AuthState {
-  isAuth: boolean;
-  user: AuthUser;
+  user:any;
 }
 const initialState: AuthState = {
-  isAuth: false,
-  user: {} as AuthUser,
+  user: null,
 };
+
+
 
 export const Auth = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    ChangeAuth: (state) => {
-      state.isAuth = !state.isAuth;
+    login: (state,action) => {
+      state.user = action.payload;
      
     },
-    RemoveUser: (state) => {
-      state.isAuth = false
+    logout: (state) => {
+      state.user = null
     }
   },
 });
 
-export const { ChangeAuth, RemoveUser } = Auth.actions;
-export const selectAuth = (state: RootState) => state.auth.isAuth;
+export const { login, logout } = Auth.actions;
+export const selectAuth = (state: RootState) => state.auth.user;
 export default Auth.reducer;

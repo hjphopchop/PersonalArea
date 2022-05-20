@@ -1,29 +1,24 @@
 import React, { FC } from "react";
 import cl from "./LoginForm.module.css";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { ChangeAuth } from "../../store/reducers/auth";
-import { useAppDispatch } from "../../hooks/store";
 
-import "firebase/firestore";
-import "firebase/auth";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import {useAuthState} from "react-firebase-hooks/auth"
+
+
 type Inputs = {
   login: string;
   password: string;
 };
 
 const LoginForm: FC = () => {
-  const dispatch = useAppDispatch();
-  const auth = getAuth();
+ 
+
+
   const handleLogin = (email: any, password: any): any => {
     
-    
-    signInWithEmailAndPassword(auth, email, password)
-      .then(() =>
-       dispatch(ChangeAuth()))
-      .catch(() => alert("неправильный логин или пароль"));
+      
   };
+
+
   const {
     register,
     handleSubmit,
@@ -31,6 +26,7 @@ const LoginForm: FC = () => {
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) =>
     handleLogin(data.login, data.password);
+
 
   
 
