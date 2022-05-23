@@ -6,14 +6,14 @@ export interface Route {
   element: any;
 }
 export enum RouteNames {
-    LOGINFORM = '/login',
-    USERSLIST = '/'
+  LOGINFORM = "/login",
+  USERSLIST = "/",
 }
 
 export const publicRoutes: Route[] = [
-{path: RouteNames.LOGINFORM, element: LoginForm}
+  { path: RouteNames.LOGINFORM, element: LoginForm },
 ];
 
 export const privateRoutes: Route[] = [
-    {path: RouteNames.USERSLIST, element: UsersList}
+  { path: RouteNames.USERSLIST, element: UsersList },
 ];

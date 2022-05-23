@@ -4,32 +4,30 @@ import { User } from "../types/User";
 export const userApi = createApi({
   reducerPath: "userApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:3001",
+    baseUrl: "http://localhost:3005",
   }),
-  tagTypes: ['Post'],
+  tagTypes: ["Post"],
   endpoints: (build) => ({
-    fetchAllUsers: build.query<User[],any>({
+    fetchAllUsers: build.query<User[], any>({
       query: () => ({
         url: "/users",
-        
       }),
-      providesTags: result => ['Post']
+      providesTags: (result) => ["Post"],
     }),
-    createUser: build.mutation<User,User>({
-      query:(user) => ({
+    createUser: build.mutation<User, User>({
+      query: (user) => ({
         url: `/users`,
         method: "POST",
-        body: user
+        body: user,
       }),
-      invalidatesTags:['Post']
+      invalidatesTags: ["Post"],
     }),
     deleteUser: build.mutation<User, User>({
-      query:(user) => ({
+      query: (user) => ({
         url: `/users/${user.id}`,
-        method: 'DELETE',
+        method: "DELETE",
       }),
-      invalidatesTags: ['Post']
-      
+      invalidatesTags: ["Post"],
     }),
   }),
 });
