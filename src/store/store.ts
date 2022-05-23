@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/dist/query";
 import { authApi } from "../services/Auth";
 import { userApi } from "../services/UserService";
-import auth from "./reducers/auth";
+import auth, { localStorageMiddleware, reHydrateStore } from "./reducers/auth";
 
 export const store = configureStore({
   reducer: {
@@ -10,8 +10,9 @@ export const store = configureStore({
     [authApi.reducerPath]: authApi.reducer,
     [userApi.reducerPath]: userApi.reducer,
   },
+  preloadedState: reHydrateStore(),
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(authApi.middleware, userApi.middleware),
+    getDefaultMiddleware().concat(authApi.middleware, userApi.middleware, localStorageMiddleware),
 });
 
 setupListeners(store.dispatch);

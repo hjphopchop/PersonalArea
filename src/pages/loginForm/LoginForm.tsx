@@ -4,7 +4,7 @@ import cl from "./LoginForm.module.css";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { authApi } from "../../services/Auth";
 import { useAppDispatch, useTypedSelector } from "../../hooks/store";
-import { ChangeAuth } from "../../store/reducers/auth";
+import { login } from "../../store/reducers/auth";
 
 type Inputs = {
   login: string;
@@ -14,19 +14,15 @@ type Inputs = {
 const LoginForm: FC = () => {
   const [loginUser, { data }] = authApi.useLoginUserMutation();
   const dispatch = useAppDispatch();
+  console.log(localStorage.getItem("login") || false);
 
   useEffect(() => {
     if (data && data.access_token) {
-      localStorage.setItem(
-        "login",
-        JSON.stringify({
-          userLogin: true,
-          token: data.access_token,
-        })
-      );
-      dispatch(ChangeAuth());
+     dispatch(login());
+      
+   
     }
-  }, [data]);
+  }, [data,dispatch]);
 
   const {
     register,

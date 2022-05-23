@@ -4,7 +4,7 @@ import { userApi } from "../../services/UserService";
 import UserItem from "../../components/userItem/UserItem";
 import { User } from "../../types/User";
 import { useAppDispatch } from "../../hooks/store";
-import { ChangeAuth } from "../../store/reducers/auth";
+import { logout } from "../../store/reducers/auth";
 
 const UsersList: FC = () => {
   const { data: users, error, isLoading } = userApi.useFetchAllUsersQuery("");
@@ -16,7 +16,8 @@ const UsersList: FC = () => {
     await createUser({ firstName, body: firstName } as User);
   };
   const exit = () => {
-    dispatch(ChangeAuth());
+    dispatch(logout());
+    
   };
   const handleRemove = (user: User) => {
     deleteUser(user);

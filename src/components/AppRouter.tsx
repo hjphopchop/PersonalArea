@@ -5,9 +5,12 @@ import { privateRoutes, publicRoutes } from "../routes";
 
 const AppRouter: FC = () => {
   const isAuth: boolean = useTypedSelector((state) => state.auth.isAuth);
+  
+ 
   return (
     <Routes>
-      {isAuth &&
+      
+      {isAuth   &&
         privateRoutes.map((route) => (
           <>
             <Route
