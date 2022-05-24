@@ -1,3 +1,4 @@
+
 import React, { FC, useState } from "react";
 import cl from "./UsersList.module.css";
 import { userApi } from "../../services/UserService";
@@ -37,7 +38,7 @@ const UsersList: FC = () => {
       if(query === "") {
         return user
       } 
-      else if (user.firstName.toLowerCase().includes(query.toLowerCase()))
+      else if (user.firstName && user.firstName.toLowerCase().includes(query.toLowerCase()))
          return user
          
         
