@@ -1,5 +1,7 @@
-import LoginForm from "../pages/loginForm/LoginForm";
-import UsersList from "../pages/usersList/UsersList";
+
+import Login from "../pages/login/Login";
+import Users from "../pages/users/Users";
+
 
 export interface Route {
   path: string;
@@ -7,13 +9,13 @@ export interface Route {
 }
 export enum RouteNames {
   LOGINFORM = "/login",
-  USERSLIST = "/",
+  USERS = "/",
 }
 
 export const publicRoutes: Route[] = [
-  { path: RouteNames.LOGINFORM, element: LoginForm },
+  { path: RouteNames.LOGINFORM, element: Login },
 ];
 
 export const privateRoutes: Route[] = [
-  { path: RouteNames.USERSLIST, element: UsersList },
+  { path: RouteNames.USERS, element: Users },
 ];

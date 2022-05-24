@@ -2,7 +2,7 @@
 import React, { FC, useState } from "react";
 import cl from "./UsersList.module.css";
 import { userApi } from "../../services/UserService";
-import UserItem from "../../components/userItem/UserItem";
+import UserItem from "../userItem/UserItem";
 import { User } from "../../types/User";
 import { useAppDispatch } from "../../hooks/store";
 import { logout } from "../../store/reducers/auth";
@@ -27,14 +27,18 @@ const UsersList: FC = () => {
 
   return (
     <div className={cl.list}>
-      <button onClick={exit}>exit</button>
-      <button onClick={handlecreate}>add</button>
+      <button onClick={exit} className={cl.exitButton}>exit</button>
+      <div className={cl.userList__items}> 
       <input  placeholder="search" 
       onChange={(e) => setQuery(e.target.value)}  />
+      <button onClick={handlecreate}>+</button>
+      </div>
+      
+      
       {isLoading && <h1>Загрузка</h1>}
       {error && <h1>Ошибка</h1>}
       {users &&
-      users.filter((user:User):any => {
+      users.filter((user:User):unknown => {
       if(query === "") {
         return user
       } 

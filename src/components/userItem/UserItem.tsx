@@ -18,7 +18,8 @@ const UserItem: FC<UserItemProps> = ({user,remove}) => {
   <div>{user.lastName}</div>
   <div>{user.company}</div>
   <div>
-    <button onClick={handleRemove} >удалить</button>
+  <button onClick={handleRemove} >Изменить</button>
+    <button onClick={handleRemove} >Удалить</button>
   </div>
   </div>
     
