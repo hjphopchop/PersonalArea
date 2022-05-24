@@ -4,7 +4,7 @@ import { User } from "../types/User";
 export const userApi = createApi({
   reducerPath: "userApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:3005",
+    baseUrl: "https://usersssbackend.herokuapp.com/",
   }),
   tagTypes: ["Post"],
   endpoints: (build) => ({

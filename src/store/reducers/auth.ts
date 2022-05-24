@@ -1,7 +1,6 @@
 // @ts-nocheck
 
 import { createSlice } from "@reduxjs/toolkit";
-import { json } from "stream/consumers";
 import { RootState } from "../store";
 
 interface AuthState {
@@ -29,7 +28,7 @@ export const Auth = createSlice({
 export const localStorageMiddleware = ({getState}) => {
   return next => action => {
     const result = next(action);
-    localStorage.setItem('login', JSON.stringify(getState().auth));
+    localStorage.setItem('login', JSON.stringify(getState()));
     return result
   }
 }

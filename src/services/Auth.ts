@@ -8,7 +8,7 @@ export interface Us {
 export const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5000",
+    baseUrl: "https://myauthsimple.herokuapp.com/",
   }),
   endpoints: (builder) => ({
     loginUser: builder.mutation<Us, Partial<Us>>({
