@@ -1,17 +1,20 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
+import { userApi } from '../../services/UserService';
+import { User } from '../../types/User';
 
-const UserForm = () => {
+const UserForm = ({user}:any) => {
+  const [createUser, {}] = userApi.useCreateUserMutation();
     const { register, handleSubmit } = useForm({
+    
         defaultValues: {
-          firstName: "bill",
-          lastName: "luo",
-          email: "test@test.com",
-          isDeveloper: true
+          firstName: user.firstName,
+          lastName: user.lastName,
+          email: user.email,
         }
       });
       const onSubmit = (data:any) => {
-        alert(JSON.stringify(data));
+        createUser({...data} as User);
       };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -27,10 +30,6 @@ const UserForm = () => {
       type="email"
       {...register("email")}
     />
-
-    <label>Is developer?</label>
-    <input type="checkbox" {...register("isDeveloper")} />
-
     <input type="submit" />
   </form>
 );

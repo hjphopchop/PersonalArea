@@ -28,7 +28,7 @@ export const Auth = createSlice({
 export const localStorageMiddleware = ({getState}) => {
   return next => action => {
     const result = next(action);
-    localStorage.setItem('login', JSON.stringify(getState()));
+    localStorage.setItem('login', JSON.stringify(getState().auth));
     return result
   }
 }
