@@ -1,5 +1,8 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import { User } from '../../types/User'
+import LoginForm from '../loginForm/LoginForm'
+import Modal from '../modal/Modal'
+import UserForm from '../userForm/UserForm'
 import cl from './UserItem.module.css'
 
 interface UserItemProps {
@@ -7,6 +10,10 @@ interface UserItemProps {
   remove: (user: User) => void
 }
 const UserItem: FC<UserItemProps> = ({user,remove}) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const handleChange = () => {
+    setIsOpen(true);
+  }
   const handleRemove = (event: React.MouseEvent) => {
     
     event.stopPropagation();
@@ -18,9 +25,13 @@ const UserItem: FC<UserItemProps> = ({user,remove}) => {
   <div>{user.lastName}</div>
   <div>{user.company}</div>
   <div>
-  <button onClick={handleRemove} >Изменить</button>
+  <button onClick={handleChange} >Изменить</button>
     <button onClick={handleRemove} >Удалить</button>
+    
   </div>
+  <Modal handleClose={()=> setIsOpen(false)} isOpen={isOpen}>
+    <UserForm/>
+  </Modal>
   </div>
     
   )

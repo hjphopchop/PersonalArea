@@ -6,9 +6,11 @@ import UserItem from "../userItem/UserItem";
 import { User } from "../../types/User";
 import { useAppDispatch } from "../../hooks/store";
 import { logout } from "../../store/reducers/auth";
+import Modal from "../modal/Modal";
 
 const UsersList: FC = () => {
   const [query, setQuery] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
   const { data: users, error, isLoading } = userApi.useFetchAllUsersQuery("");
   const [deleteUser, {}] = userApi.useDeleteUserMutation();
   const [createUser, {}] = userApi.useCreateUserMutation();
@@ -17,6 +19,9 @@ const UsersList: FC = () => {
     const firstName = prompt();
     await createUser({ firstName, body: firstName } as User);
   };
+  const handlecr = () => {
+    setIsOpen(true);
+  }
   const exit = () => {
     dispatch(logout());
     
@@ -31,7 +36,8 @@ const UsersList: FC = () => {
       <div className={cl.userList__items}> 
       <input  placeholder="search" 
       onChange={(e) => setQuery(e.target.value)}  />
-      <button onClick={handlecreate}>+</button>
+      <button onClick={handlecreate}>+++</button>
+      <button onClick={()=>setIsOpen(true)}>+</button>
       </div>
       
       
@@ -49,6 +55,9 @@ const UsersList: FC = () => {
       }).map((user: User) => (
           <UserItem key={user.id} user={user} remove={handleRemove} />
         ))}
+        <Modal handleClose={()=> setIsOpen(false)} isOpen={isOpen}>
+    899
+  </Modal>
     </div>
   );
 };
