@@ -23,16 +23,19 @@ const UserForm = ({ user, variant }: any) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <label htmlFor="firstName">First Name</label>
-      <input placeholder="bill" {...register("firstName")} />
+      <input
+        placeholder="bill"
+        {...register("firstName", { required: true })}
+      />
 
       <label htmlFor="lastName">Last Name</label>
-      <input placeholder="luo" {...register("lastName")} />
+      <input placeholder="luo" {...register("lastName", { required: true })} />
 
       <label htmlFor="email">Email</label>
       <input
         placeholder="bluebill1049@hotmail.com"
         type="email"
-        {...register("email")}
+        {...register("email", { required: true })}
       />
       <input type="submit" />
     </form>

@@ -21,7 +21,9 @@ const UserItem: FC<UserItemProps> = ({ user, remove }) => {
   return (
     <div className={cl.wrap}>
       <div>{user.firstName}</div>
+      <div>{user.lastName}</div>
       <div>{user.email}</div>
+      
       <div>
         <button onClick={handleChange}>Изменить</button>
         <button onClick={handleRemove}>Удалить</button>

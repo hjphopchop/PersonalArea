@@ -27,10 +27,12 @@ function Modal({ children, isOpen, handleClose }: any) {
         nodeRef={nodeRef}
       >
         <div className={cl.modal} ref={nodeRef}>
-          <button onClick={handleClose} className={cl.closeBtn}>
+          
+          <div className={cl.modalContent}>{children}
+		  <button onClick={handleClose} className={cl.closeBtn}>
             Close
           </button>
-          <div className={cl.modalContent}>{children}</div>
+		  </div>
         </div>
       </CSSTransition>
     </ReactPortal>

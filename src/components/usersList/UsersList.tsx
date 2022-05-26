@@ -32,7 +32,7 @@ const UsersList: FC = () => {
   return (
     <div className={cl.list}>
       <button onClick={exit} className={cl.exitButton}>
-        exit
+        Выйти
       </button>
       <div className={cl.userList__items}>
         <input
