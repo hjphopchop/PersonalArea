@@ -25,7 +25,7 @@ const LoginForm: FC = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data) => await loginUser(data);
 
@@ -46,7 +46,9 @@ const LoginForm: FC = () => {
       {errors.password && <span>обязательное поле</span>}
 
       <label>reer </label>
-      <button type="submit">Войти</button>
+      <button disabled={isSubmitting} type="submit">
+       {isSubmitting ?<span>Загрузка</span>
+       :<span> Войти</span>} </button>
     </form>
   );
 };
