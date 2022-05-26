@@ -5,6 +5,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { authApi } from "../../services/Auth";
 import { useAppDispatch } from "../../hooks/store";
 import { login } from "../../store/reducers/auth";
+import { FiLoader } from "react-icons/fi";
 
 type Inputs = {
   login: string;
@@ -31,23 +32,24 @@ const LoginForm: FC = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={cl.form}>
+      
       <input
         className={cl.input}
         {...register("email", {
           required: true,
         })}
+        
       />
-
+     
       <input
         type="password"
         className={cl.input}
         {...register("password", { required: true })}
       />
-      {errors.password && <span>обязательное поле</span>}
+      
 
-      <label>reer </label>
-      <button disabled={isSubmitting} type="submit">
-       {isSubmitting ?<span>Загрузка</span>
+      <button disabled={isSubmitting} type="submit" className={cl.submitBtn} >
+       {isSubmitting ?<span>{<FiLoader/>}</span>
        :<span> Войти</span>} </button>
     </form>
   );

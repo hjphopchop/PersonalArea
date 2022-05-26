@@ -1,9 +1,6 @@
 .App {
   text-align: center;
-  background-color: rgb(46, 155, 243);
-  min-height: 100vh;
+  
+ 
 }
 
-.content {
-  margin: 0 10vw;
-}

@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from "react";
+import {useLayoutEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
 function createWrapperAndAppendToBody(wrapperId: any) {
@@ -14,7 +14,7 @@ function ReactPortal({
 }: any): any {
   const [wrapperElement, setWrapperElement] = useState(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     let element: any = document.getElementById(wrapperId);
     let systemCreated = false;
     if (!element) {
