@@ -13,8 +13,8 @@ const UsersList: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { data: users, error, isLoading } = userApi.useFetchAllUsersQuery("");
   const [deleteUser, {}] = userApi.useDeleteUserMutation();
-  const [createUser, {}] = userApi.useCreateUserMutation();
   const dispatch = useAppDispatch();
+  const variant = "createUser";
 
   const defaultValue: User = {
     firstName: "",
@@ -59,7 +59,7 @@ const UsersList: FC = () => {
             <UserItem key={user.id} user={user} remove={handleRemove} />
           ))}
       <Modal handleClose={() => setIsOpen(false)} isOpen={isOpen}>
-        <UserForm user={defaultValue} />
+        <UserForm user={defaultValue} variant={variant} />
       </Modal>
     </div>
   );

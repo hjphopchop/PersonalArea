@@ -3,7 +3,7 @@ import React, { FC, useEffect } from "react";
 import cl from "./LoginForm.module.css";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { authApi } from "../../services/Auth";
-import { useAppDispatch} from "../../hooks/store";
+import { useAppDispatch } from "../../hooks/store";
 import { login } from "../../store/reducers/auth";
 
 type Inputs = {
@@ -18,11 +18,9 @@ const LoginForm: FC = () => {
 
   useEffect(() => {
     if (data && data.access_token) {
-     dispatch(login());
-      
-   
+      dispatch(login());
     }
-  }, [data,dispatch]);
+  }, [data, dispatch]);
 
   const {
     register,
@@ -33,8 +31,12 @@ const LoginForm: FC = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={cl.form}>
-      <input className={cl.input} {...register("email", {
-         required: true })} />
+      <input
+        className={cl.input}
+        {...register("email", {
+          required: true,
+        })}
+      />
 
       <input
         type="password"

@@ -1,7 +1,7 @@
-import {useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
-function createWrapperAndAppendToBody(wrapperId:any) {
+function createWrapperAndAppendToBody(wrapperId: any) {
   const wrapperElement = document.createElement("div");
   wrapperElement.setAttribute("id", wrapperId);
   document.body.appendChild(wrapperElement);
@@ -15,7 +15,7 @@ function ReactPortal({
   const [wrapperElement, setWrapperElement] = useState(null);
 
   useLayoutEffect(() => {
-    let element:any = document.getElementById(wrapperId);
+    let element: any = document.getElementById(wrapperId);
     let systemCreated = false;
     if (!element) {
       systemCreated = true;

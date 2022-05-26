@@ -1,4 +1,3 @@
-
 .modal {
   position: fixed;
   inset: 0; /* inset sets all 4 values (top right bottom left) much like how we set padding, margin etc., */
@@ -15,7 +14,6 @@
   pointer-events: none;
   transform: scale(0.4);
 }
-
 
 .modalEnterDone {
   opacity: 1;

@@ -12,7 +12,11 @@ export const store = configureStore({
   },
   preloadedState: reHydrateStore(),
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(authApi.middleware, userApi.middleware, localStorageMiddleware),
+    getDefaultMiddleware().concat(
+      authApi.middleware,
+      userApi.middleware,
+      localStorageMiddleware
+    ),
 });
 
 setupListeners(store.dispatch);

@@ -1,7 +1,5 @@
-
 import Login from "../pages/login/Login";
 import Users from "../pages/users/Users";
-
 
 export interface Route {
   path: string;
