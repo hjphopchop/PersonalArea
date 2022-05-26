@@ -3,8 +3,7 @@ import cl from "./UsersList.module.css";
 import { userApi } from "../../services/UserService";
 import UserItem from "../userItem/UserItem";
 import { User } from "../../types/User";
-import { useAppDispatch } from "../../hooks/store";
-import { logout } from "../../store/reducers/auth";
+
 import Modal from "../modal/Modal";
 import UserForm from "../userForm/UserForm";
 
@@ -13,7 +12,7 @@ const UsersList: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { data: users, error, isLoading } = userApi.useFetchAllUsersQuery("");
   const [deleteUser, {}] = userApi.useDeleteUserMutation();
-  const dispatch = useAppDispatch();
+  
   const variant = "createUser";
 
   const defaultValue: User = {
@@ -22,24 +21,20 @@ const UsersList: FC = () => {
     email: "",
   };
 
-  const exit = () => {
-    dispatch(logout());
-  };
+  
   const handleRemove = (user: User) => {
     deleteUser(user);
   };
 
   return (
     <div className={cl.list}>
-      <button onClick={exit} className={cl.exitButton}>
-        Выйти
-      </button>
+      
       <div className={cl.userList__items}>
         <input
           placeholder="search"
           onChange={(e) => setQuery(e.target.value)}
         />
-        <button onClick={() => setIsOpen(true)}>+</button>
+        <button onClick={() => setIsOpen(true)} className={cl.openModal}>+</button>
       </div>
 
       {isLoading && <h1>Загрузка</h1>}

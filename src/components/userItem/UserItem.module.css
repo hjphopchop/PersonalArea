@@ -1,8 +1,36 @@
 .wrap {
-  margin: 3vh 2vw;
+  margin: 3vh 0vw;
   padding: 2vh 2vw;
   background-color: rgb(255, 255, 255);
   -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
   -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
   box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  position: relative;
+  text-align: left;
+}
+.removeBtn,
+.changeBtn{
+    position: absolute;
+    right: 0;
+    font-size: 25px;
+    background: none;
+padding: 2vh 2vw;
+border: none;
+}
+
+.removeBtn:hover,
+.changeBtn:hover{
+    color: red;
+    cursor: pointer;
+}
+
+.removeBtn{
+
+top: 0;
+
+
+}
+
+.changeBtn{
+bottom: 0;
 }

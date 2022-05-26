@@ -30,7 +30,7 @@ function Modal({ children, isOpen, handleClose }: any) {
           
           <div className={cl.modalContent}>{children}
 		  <button onClick={handleClose} className={cl.closeBtn}>
-            Close
+            x
           </button>
 		  </div>
         </div>

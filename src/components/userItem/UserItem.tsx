@@ -4,6 +4,10 @@ import Modal from "../modal/Modal";
 import UserForm from "../userForm/UserForm";
 import cl from "./UserItem.module.css";
 
+import { RiDeleteBin6Fill, RiEditFill } from "react-icons/ri";
+
+
+
 interface UserItemProps {
   user: User;
   remove: (user: User) => void;
@@ -20,13 +24,13 @@ const UserItem: FC<UserItemProps> = ({ user, remove }) => {
   };
   return (
     <div className={cl.wrap}>
-      <div>{user.firstName}</div>
-      <div>{user.lastName}</div>
-      <div>{user.email}</div>
+      <div>Имя: {user.firstName}</div>
+      <div>Фамилия: {user.lastName}</div>
+      <div>e-mail: {user.email}</div>
       
       <div>
-        <button onClick={handleChange}>Изменить</button>
-        <button onClick={handleRemove}>Удалить</button>
+        <button onClick={handleChange} className={cl.changeBtn}><RiEditFill/></button>
+        <button onClick={handleRemove} className={cl.removeBtn}><RiDeleteBin6Fill/></button>
       </div>
       <Modal handleClose={() => setIsOpen(false)} isOpen={isOpen}>
         <UserForm user={user} variant={variant} />

@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { userApi } from "../../services/UserService";
 import { User } from "../../types/User";
+import cl from "./UserForm.module.css"
 
 const UserForm = ({ user, variant }: any) => {
   const [createUser, {}] = userApi.useCreateUserMutation();
@@ -21,17 +22,17 @@ const UserForm = ({ user, variant }: any) => {
       : updateUser({ ...data } as User);
   };
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="firstName">First Name</label>
+    <form onSubmit={handleSubmit(onSubmit)} className={cl.userForm}>
+      <label htmlFor="firstName">Имя</label>
       <input
         placeholder="bill"
         {...register("firstName", { required: true })}
       />
 
-      <label htmlFor="lastName">Last Name</label>
+      <label htmlFor="lastName">Фамилия</label>
       <input placeholder="luo" {...register("lastName", { required: true })} />
 
-      <label htmlFor="email">Email</label>
+      <label htmlFor="email">E-mail</label>
       <input
         placeholder="bluebill1049@hotmail.com"
         type="email"

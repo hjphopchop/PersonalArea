@@ -42,4 +42,9 @@
   position: absolute;
   right: 0;
   top: 0;
+  font-size: 30px;
+  padding: 2vh 2vw;
+  color: white;
+  background:none;
+  border: none;
 }
