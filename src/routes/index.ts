@@ -1,9 +1,10 @@
+import React from "react";
 import Login from "../pages/login/Login";
 import Users from "../pages/users/Users";
 
 export interface Route {
   path: string;
-  element: any;
+  element: React.FC;
 }
 export enum RouteNames {
   LOGINFORM = "/login",

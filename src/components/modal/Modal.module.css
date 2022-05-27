@@ -1,7 +1,7 @@
 .modal {
   position: fixed;
   inset: 0; /* inset sets all 4 values (top right bottom left) much like how we set padding, margin etc., */
- 
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,13 +38,13 @@
   font-size: 2rem;
 }
 
-.closeBtn{
+.closeBtn {
   position: absolute;
   right: 0;
   top: 0;
   font-size: 30px;
   padding: 2vh 2vw;
   color: white;
-  background:none;
+  background: none;
   border: none;
 }

@@ -1,8 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-export interface Us {
+export interface UserAuth {
   login: string;
   password: string;
+  access_token: string;
 }
 
 export const authApi = createApi({
@@ -11,7 +12,7 @@ export const authApi = createApi({
     baseUrl: "https://myauthsimple.herokuapp.com/",
   }),
   endpoints: (builder) => ({
-    loginUser: builder.mutation<Us, Partial<Us>>({
+    loginUser: builder.mutation<UserAuth, Partial<UserAuth>>({
       query: (body) => ({
         url: `/api/auth/login`,
         method: "POST",

@@ -11,8 +11,8 @@ const UsersList: FC = () => {
   const [query, setQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const { data: users, error, isLoading } = userApi.useFetchAllUsersQuery("");
-  const [deleteUser, {}] = userApi.useDeleteUserMutation();
-  
+  const [deleteUser] = userApi.useDeleteUserMutation();
+
   const variant = "createUser";
 
   const defaultValue: User = {
@@ -21,27 +21,27 @@ const UsersList: FC = () => {
     email: "",
   };
 
-  
   const handleRemove = (user: User) => {
     deleteUser(user);
   };
 
   return (
     <div className={cl.list}>
-      
       <div className={cl.userList__items}>
         <input
           placeholder="search"
           onChange={(e) => setQuery(e.target.value)}
         />
-        <button onClick={() => setIsOpen(true)} className={cl.openModal}>+</button>
+        <button onClick={() => setIsOpen(true)} className={cl.openModal}>
+          +
+        </button>
       </div>
 
       {isLoading && <h1>Загрузка</h1>}
       {error && <h1>Ошибка</h1>}
       {users &&
         users
-          .filter((user: User): unknown => {
+          .filter((user: User) => {
             if (query === "") {
               return user;
             } else if (
@@ -49,6 +49,9 @@ const UsersList: FC = () => {
               user.firstName.toLowerCase().includes(query.toLowerCase())
             )
               return user;
+            else {
+              return null;
+            }
           })
           .map((user: User) => (
             <UserItem key={user.id} user={user} remove={handleRemove} />

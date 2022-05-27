@@ -7,19 +7,18 @@
   display: flex;
   flex-direction: column;
 
-  
   padding: 2vh 0;
 }
 
-.openModal{
-    font-size: 25px;
-    
-    border: none;
-    background-color: rgba(247, 247, 247, 0.973);
-   
-    padding: 10px;
+.openModal {
+  font-size: 25px;
+
+  border: none;
+  background-color: rgba(247, 247, 247, 0.973);
+
+  padding: 10px;
 }
 
-.openModal:hover{
-    cursor: pointer;
+.openModal:hover {
+  cursor: pointer;
 }

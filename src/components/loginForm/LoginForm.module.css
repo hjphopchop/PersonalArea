@@ -1,26 +1,17 @@
 .form {
-
-
-    display: flex;
-    flex-direction: column;
-
-  
+  display: flex;
+  flex-direction: column;
 }
 
 .input {
-    
-    font-size: inherit;
+  font-size: inherit;
   min-width: 20vw;
   padding: 1vh 1vw;
   margin: 2vh 0;
 }
-.submitBtn{
-    font-size: inherit;
-    border: none;
-    padding: 1vh 1vw;
-    margin-top: 2vh;
-    
-}
-
-.submitBtn span{
+.submitBtn {
+  font-size: inherit;
+  border: none;
+  padding: 1vh 1vw;
+  margin-top: 2vh;
 }

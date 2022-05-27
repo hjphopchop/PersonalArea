@@ -1,12 +1,17 @@
-import React, { useEffect, useRef } from "react";
+import React, { FC, useEffect, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import ReactPortal from "../ReactPortal";
 import cl from "./Modal.module.css";
 
-function Modal({ children, isOpen, handleClose }: any) {
+export interface ModalProps {
+  children: React.ReactNode;
+  isOpen: boolean;
+  handleClose: () => void;
+}
+const Modal: FC<ModalProps> = ({ children, isOpen, handleClose }) => {
   const nodeRef = useRef(null);
   useEffect(() => {
-    const closeOnEscapeKey = (e: any): any =>
+    const closeOnEscapeKey = (e: KeyboardEvent): void | null =>
       e.key === "Escape" ? handleClose() : null;
     document.body.addEventListener("keydown", closeOnEscapeKey);
     return () => {
@@ -27,15 +32,15 @@ function Modal({ children, isOpen, handleClose }: any) {
         nodeRef={nodeRef}
       >
         <div className={cl.modal} ref={nodeRef}>
-          
-          <div className={cl.modalContent}>{children}
-		  <button onClick={handleClose} className={cl.closeBtn}>
-            x
-          </button>
-		  </div>
+          <div className={cl.modalContent}>
+            {children}
+            <button onClick={handleClose} className={cl.closeBtn}>
+              x
+            </button>
+          </div>
         </div>
       </CSSTransition>
     </ReactPortal>
   );
-}
+};
 export default Modal;

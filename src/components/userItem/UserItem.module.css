@@ -9,28 +9,25 @@
   text-align: left;
 }
 .removeBtn,
-.changeBtn{
-    position: absolute;
-    right: 0;
-    font-size: 25px;
-    background: none;
-padding: 2vh 2vw;
-border: none;
+.changeBtn {
+  position: absolute;
+  right: 0;
+  font-size: 25px;
+  background: none;
+  padding: 2vh 2vw;
+  border: none;
 }
 
 .removeBtn:hover,
-.changeBtn:hover{
-    color: red;
-    cursor: pointer;
+.changeBtn:hover {
+  color: red;
+  cursor: pointer;
 }
 
-.removeBtn{
-
-top: 0;
-
-
+.removeBtn {
+  top: 0;
 }
 
-.changeBtn{
-bottom: 0;
+.changeBtn {
+  bottom: 0;
 }

@@ -1,10 +1,9 @@
-.usersPage{
-    background-color: rgb(46, 155, 243);
-    min-height: 100vh;
-    font-size: 20px;
+.usersPage {
+  background-color: rgb(46, 155, 243);
+  min-height: 100vh;
+  font-size: 20px;
 }
 
 .content {
-    margin: 0 10vw;
-  }
-  
+  margin: 0 10vw;
+}

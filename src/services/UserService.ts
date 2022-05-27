@@ -8,7 +8,7 @@ export const userApi = createApi({
   }),
   tagTypes: ["Post"],
   endpoints: (build) => ({
-    fetchAllUsers: build.query<User[], any>({
+    fetchAllUsers: build.query<User[], string>({
       query: () => ({
         url: "/users",
       }),

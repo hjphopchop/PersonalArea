@@ -2,11 +2,15 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { userApi } from "../../services/UserService";
 import { User } from "../../types/User";
-import cl from "./UserForm.module.css"
+import cl from "./UserForm.module.css";
 
-const UserForm = ({ user, variant }: any) => {
-  const [createUser, {}] = userApi.useCreateUserMutation();
-  const [updateUser, {}] = userApi.useUpdateUserMutation();
+interface UserFormProps {
+  user: User;
+  variant: string;
+}
+const UserForm = ({ user, variant }: UserFormProps) => {
+  const [createUser] = userApi.useCreateUserMutation();
+  const [updateUser] = userApi.useUpdateUserMutation();
   const { register, handleSubmit } = useForm({
     defaultValues: {
       firstName: user.firstName,
@@ -16,7 +20,7 @@ const UserForm = ({ user, variant }: any) => {
     },
   });
   console.log(variant);
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: User) => {
     variant === "createUser"
       ? createUser({ ...data } as User)
       : updateUser({ ...data } as User);

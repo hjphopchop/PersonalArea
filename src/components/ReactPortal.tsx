@@ -1,21 +1,24 @@
-import {useLayoutEffect, useState } from "react";
+import React, {useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
-function createWrapperAndAppendToBody(wrapperId: any) {
+function createWrapperAndAppendToBody(wrapperId: string) {
   const wrapperElement = document.createElement("div");
   wrapperElement.setAttribute("id", wrapperId);
   document.body.appendChild(wrapperElement);
   return wrapperElement;
 }
-
+interface ReactPortalProps {
+  children: React.ReactNode,
+  wrapperId: string 
+}
 function ReactPortal({
   children,
   wrapperId = "react-portal-wrapper",
-}: any): any {
+}: ReactPortalProps) {
   const [wrapperElement, setWrapperElement] = useState(null);
 
-  useLayoutEffect(() => {
-    let element: any = document.getElementById(wrapperId);
+  useEffect(() => {
+    let element:any = document.getElementById(wrapperId) ;
     let systemCreated = false;
     if (!element) {
       systemCreated = true;

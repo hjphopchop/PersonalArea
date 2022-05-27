@@ -1,7 +1,5 @@
-// @ts-nocheck
-
 import { createSlice } from "@reduxjs/toolkit";
-import { RootState, store } from "../store";
+import { RootState } from "../store";
 
 interface AuthState {
   isAuth: boolean;

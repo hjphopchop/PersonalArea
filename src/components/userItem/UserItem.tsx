@@ -6,8 +6,6 @@ import cl from "./UserItem.module.css";
 
 import { RiDeleteBin6Fill, RiEditFill } from "react-icons/ri";
 
-
-
 interface UserItemProps {
   user: User;
   remove: (user: User) => void;
@@ -27,10 +25,14 @@ const UserItem: FC<UserItemProps> = ({ user, remove }) => {
       <div>Имя: {user.firstName}</div>
       <div>Фамилия: {user.lastName}</div>
       <div>e-mail: {user.email}</div>
-      
+
       <div>
-        <button onClick={handleChange} className={cl.changeBtn}><RiEditFill/></button>
-        <button onClick={handleRemove} className={cl.removeBtn}><RiDeleteBin6Fill/></button>
+        <button onClick={handleChange} className={cl.changeBtn}>
+          <RiEditFill />
+        </button>
+        <button onClick={handleRemove} className={cl.removeBtn}>
+          <RiDeleteBin6Fill />
+        </button>
       </div>
       <Modal handleClose={() => setIsOpen(false)} isOpen={isOpen}>
         <UserForm user={user} variant={variant} />
