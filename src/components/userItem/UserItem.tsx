@@ -20,6 +20,10 @@ const UserItem: FC<UserItemProps> = ({ user, remove }) => {
     event.stopPropagation();
     remove(user);
   };
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
   return (
     <div className={cl.wrap}>
       <div>Имя: {user.firstName}</div>
@@ -34,8 +38,8 @@ const UserItem: FC<UserItemProps> = ({ user, remove }) => {
           <RiDeleteBin6Fill />
         </button>
       </div>
-      <Modal handleClose={() => setIsOpen(false)} isOpen={isOpen}>
-        <UserForm user={user} variant={variant} />
+      <Modal handleClose={handleClose} isOpen={isOpen}>
+        <UserForm user={user} variant={variant} handleClose={handleClose} />
       </Modal>
     </div>
   );

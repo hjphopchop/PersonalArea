@@ -7,10 +7,12 @@ import cl from "./UserForm.module.css";
 interface UserFormProps {
   user: User;
   variant: string;
+  handleClose: () => void;
 }
-const UserForm = ({ user, variant }: UserFormProps) => {
+const UserForm = ({ user, variant, handleClose }: UserFormProps) => {
   const [createUser] = userApi.useCreateUserMutation();
   const [updateUser] = userApi.useUpdateUserMutation();
+
   const { register, handleSubmit } = useForm({
     defaultValues: {
       firstName: user.firstName,
@@ -20,10 +22,12 @@ const UserForm = ({ user, variant }: UserFormProps) => {
     },
   });
   console.log(variant);
+  console.log(user);
   const onSubmit = (data: User) => {
     variant === "createUser"
       ? createUser({ ...data } as User)
       : updateUser({ ...data } as User);
+    handleClose();
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={cl.userForm}>

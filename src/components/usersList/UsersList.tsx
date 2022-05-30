@@ -25,6 +25,10 @@ const UsersList: FC = () => {
     deleteUser(user);
   };
 
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
   return (
     <div className={cl.list}>
       <div className={cl.userList__items}>
@@ -56,8 +60,12 @@ const UsersList: FC = () => {
           .map((user: User) => (
             <UserItem key={user.id} user={user} remove={handleRemove} />
           ))}
-      <Modal handleClose={() => setIsOpen(false)} isOpen={isOpen}>
-        <UserForm user={defaultValue} variant={variant} />
+      <Modal handleClose={handleClose} isOpen={isOpen}>
+        <UserForm
+          user={defaultValue}
+          variant={variant}
+          handleClose={handleClose}
+        />
       </Modal>
     </div>
   );

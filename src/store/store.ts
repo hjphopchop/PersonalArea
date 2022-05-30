@@ -3,6 +3,7 @@ import { setupListeners } from "@reduxjs/toolkit/dist/query";
 import { authApi } from "../services/Auth";
 import { userApi } from "../services/UserService";
 import auth from "./reducers/auth";
+import modal from "./reducers/modal"
 import {
   persistStore,
   persistReducer,
@@ -23,8 +24,11 @@ const authConfig = {
   key: "auth",
   storage,
 };
+
+
 const rootReducer = combineReducers({
   auth: persistReducer(authConfig, auth),
+ modal,
   [authApi.reducerPath]: authApi.reducer,
   [userApi.reducerPath]: userApi.reducer,
 });
