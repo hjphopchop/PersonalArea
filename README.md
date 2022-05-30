@@ -3,7 +3,7 @@
 Использовал React, Redux-toolkit, RTK, Redux-persist, react-hook-form,
 react-router-dom, react-transition
 
-Для авторизации использовал Json-server, который залил на heroku
+Для авторизации и списка использовал Json-server, который залил на heroku
 
 ##
 
