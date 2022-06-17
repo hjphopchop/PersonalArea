@@ -1,36 +1,33 @@
 import React, { FC } from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { useTypedSelector } from "../hooks/store";
-import { privateRoutes, publicRoutes } from "../routes";
+import Login from "../pages/login/Login";
+import Users from "../pages/users/Users";
+import "../App.css";
 
 const AppRouter: FC = () => {
   const isAuth: boolean = useTypedSelector((state) => state.auth.isAuth);
-
+  const location = useLocation();
   return (
-    <Routes>
-      {isAuth &&
-        privateRoutes.map((route) => (
-          <>
-            <Route
-              path={route.path}
-              element={<route.element />}
-              key={route.path}
-            />
-            <Route path="*" element={<Navigate to={route.path} replace />} />
-          </>
-        ))}
-      {!isAuth &&
-        publicRoutes.map((route) => (
-          <>
-            <Route
-              path={route.path}
-              element={<route.element />}
-              key={route.path}
-            />
-            <Route path="*" element={<Navigate to={route.path} replace />} />
-          </>
-        ))}
-    </Routes>
+    <TransitionGroup>
+      <CSSTransition key={location.pathname} timeout={500} classNames="next">
+        <Routes location={location}>
+          {!isAuth && (
+            <>
+              <Route path="login" element={<Login />} />
+              <Route path="*" element={<Navigate to={"/login"} replace />} />
+            </>
+          )}
+          {isAuth && (
+            <>
+              <Route path="/" element={<Users />} />
+              <Route path="*" element={<Navigate to={"/"} replace />} />
+            </>
+          )}
+        </Routes>
+      </CSSTransition>
+    </TransitionGroup>
   );
 };
 
